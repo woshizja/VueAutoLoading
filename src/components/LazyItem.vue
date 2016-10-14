@@ -33,6 +33,8 @@
       display: block;
       box-sizing: border-box;
       width: 100%;
+      max-height: 310.38px;
+      overflow: hidden;
       font-size: 0;
       margin: 0 auto;
 }
