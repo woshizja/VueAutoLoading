@@ -4,7 +4,7 @@ var items = [{
     bigSrc: 'http://oenqoxl4h.bkt.clouddn.com/list01.jpg-square',
     state: "hide"
 }, {
-    desc: "This is a lazy item.",
+    desc: "大量描述自动折行，限制两行，自动省略号。大量描述自动折行，限制两行，自动省略号。大量描述自动折行，限制两行，自动省略号。",
     smallSrc: 'http://oenqoxl4h.bkt.clouddn.com/list02.jpg-small',
     bigSrc: 'http://oenqoxl4h.bkt.clouddn.com/list02.jpg-square',
     state: "hide"
