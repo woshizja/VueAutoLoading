@@ -3,6 +3,7 @@
       display: block;
       box-sizing: border-box;
       width: 83.3%;
+      max-width: 320px;
       height: 371.63px;
       height: ;
       margin: 0 auto;
