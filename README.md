@@ -2,6 +2,10 @@
 
 > scroll lazy loading img by vue.
 
+## 说明
+基于**Vue2.0**实现，图片随滚动**延迟加载**，**先请求缩略图**，缩略图加载后带模糊效果。滚动到底部后可**异步加载**更多内容，实现无限加载。
+[demo: ](https://woshizja.github.io/VueAutoLoading/)
+
 ## Build Setup
 
 ``` bash
