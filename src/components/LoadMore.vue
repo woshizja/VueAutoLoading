@@ -52,33 +52,13 @@
 }
 </style>
 <template>
-      <div class="load-more" v-show="show" v-on:click="toggleLoad">
+      <div class="load-more">
             <span v-show="!isLoading">加载更多···</span>
             <span v-show="isLoading" class="loading"></span>
       </div>
 </template>
 <script>
-import eventHub from '../eventHUb.js'
-
 export default {
-      data: function() {
-            return {
-                  isLoading: false,
-                  show: true
-            };
-      },
-      created: function() {
-            eventHub.$on("more-loaded", this.toggleLoad);
-      },
-      methods: {
-            toggleLoad: function(e) {
-                  if (e && !this.isLoading) {
-                        this.isLoading = !this.isLoading;
-                        eventHub.$emit("load-more");
-                  } else if(!e){
-                        this.isLoading = !this.isLoading;
-                  }
-            }
-      }
+      props: ['isLoading']
 }
 </script>

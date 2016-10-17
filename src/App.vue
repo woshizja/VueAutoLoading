@@ -10,14 +10,13 @@
                   <lazy-item v-bind:item-data="item"></lazy-item>
                   <i class="divide"></i>
             </div>
-            <load-more></load-more>
+            <load-more v-bind:is-loading="isLoading" v-on:click.native="toggleLoad"></load-more>
       </div>
 </template>
 <script>
 import LazyItem from './components/LazyItem.vue'
 import LoadMore from './components/LoadMore.vue'
 import itemsData from '../data/items.js'
-import eventHub from './eventHUb.js'
 
 export default {
       data: function() {
@@ -26,15 +25,13 @@ export default {
                   itemsPos: [],
                   timer: null,
                   loader: [],
-                  isScrolling: false
+                  isScrolling: false,
+                  isLoading: false
             }
       },
       components: {
             LazyItem,
             LoadMore
-      },
-      created: function() {
-            eventHub.$on('load-more', this.loadMore);
       },
       mounted: function() {
             this.initPos(0);
@@ -42,6 +39,14 @@ export default {
             this.bindEvent();
       },
       methods: {
+            toggleLoad: function(e) {
+                  if (e && !this.isLoading) {
+                        this.isLoading = !this.isLoading;
+                        this.loadMore();
+                  } else if (!e) {
+                        this.isLoading = !this.isLoading;
+                  }
+            },
             loadMore: function() {
                   // 模拟异步加载
                   setTimeout(() => {
@@ -59,7 +64,7 @@ export default {
                         this.$nextTick(function() {
                               this.initPos(this.itemsPos.length);
                         });
-                        eventHub.$emit("more-loaded");
+                        this.toggleLoad();
                   }, 1600);
             },
             initPos: function(start) {
